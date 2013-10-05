@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Gqrx/fork by plasmapuppy</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Gqrx/fork</h1>
+        <p>Software defined radio receiver powered by GNU Radio and Qt.</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/plasmapuppy/gqrx" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/plasmapuppy/gqrx/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/plasmapuppy/gqrx/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a name="gqrx" class="anchor" href="#gqrx"><span class="octicon octicon-link"></span></a>Gqrx</h1>
+
+<p>Gqrx is an experimental software defined radio receiver implemented using GNU Radio and the Qt GUI toolkit. Currently it works on Linux and Mac and supports the following devices:</p>
+
+<ul>
+<li>Funcube Dongle Pro and Pro+</li>
+<li>RTL2832U-based DVB-T dongles (rtlsdr via USB and TCP)</li>
+<li>OsmoSDR</li>
+<li>USRP</li>
+<li>HackRF Jawbreaker</li>
+<li>Nuand bladeRF</li>
+<li>any other device supported by the gr-osmosdr library</li>
+</ul><p>Gqrx can operate as a traditional AM/FM/SSB receiver with audio output or as an FFT-only instrument.
+This is a fork of the Gqrx program, with support for background usage, with a systray icon.</p>
+
+<h2>
+<a name="download" class="anchor" href="#download"><span class="octicon octicon-link"></span></a>Download</h2>
+
+<p>Gqrx is distributed as source code package and binaries for Linux and Mac. Please see <a href="http://gqrx.dk/download">http://gqrx.dk/download</a> for a list of official and third party download resources.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>The first time you start gqrx it will open a device configuration dialog. Supported devices that are connected to the computer are discovered automatically and you can select any of them in the drop-down list.</p>
+
+<p>If you don't see your device listed in the drop-down list it could be because:</p>
+
+<ul>
+<li>The driver has not included in a binary distribution</li>
+<li>The udev rule has not been properly configured</li>
+</ul><p>You can test your device first with rtl_test, qthid, or uhd_usrp_probe that come with the respective packages.</p>
+
+<p>Gqrx supports multiple configurations and sessions if you have several devices or if you want to use the same device under different configurations. You can load a configuration from the GUI or using the -c command line argument. See "gqrx --help" for a complete list of command line arguments.</p>
+
+<h2>
+<a name="known-problems" class="anchor" href="#known-problems"><span class="octicon octicon-link"></span></a>Known problems</h2>
+
+<p>See the bug tracker on Github: <a href="https://github.com/csete/gqrx/issues">https://github.com/csete/gqrx/issues</a></p>
+
+<h2>
+<a name="getting-help-and-reporting-bugs" class="anchor" href="#getting-help-and-reporting-bugs"><span class="octicon octicon-link"></span></a>Getting help and reporting bugs</h2>
+
+<p>There is now a Google group for discussing anything related to Gqrx: <a href="https://groups.google.com/forum/#!forum/gqrx">https://groups.google.com/forum/#!forum/gqrx</a>
+This includes getting help with installation and troubleshooting. Please remember to provide detailed description of your problem, your setup, what steps you followed, etc.</p>
+
+<h2>
+<a name="installation-from-source" class="anchor" href="#installation-from-source"><span class="octicon octicon-link"></span></a>Installation from source</h2>
+
+<p>The source code is hosted on Github: <a href="https://github.com/csete/gqrx">https://github.com/csete/gqrx</a></p>
+
+<p>To compile gqrx from source you need the following dependencies:</p>
+
+<ul>
+<li>GNU Radio 3.7 with the following components:
+
+<ul>
+<li>gnuradio-runtime</li>
+<li>gnuradio-analog</li>
+<li>gnuradio-blocks</li>
+<li>gnuradio-filter</li>
+<li>gnuradio-fft</li>
+<li>gnuradio-audio</li>
+</ul>
+</li>
+<li>The gr-iqbalance library (optional)</li>
+<li>At least one of:
+
+<ul>
+<li>Funcube Dongle Pro driver via gnuradio-fcd</li>
+<li>UHD driver via gnuradio-uhd</li>
+<li>Funcube Dongle Pro+ driver from <a href="https://github.com/dl1ksv/gr-fcdproplus">https://github.com/dl1ksv/gr-fcdproplus</a>
+</li>
+<li>RTL-SDR driver from <a href="http://cgit.osmocom.org/cgit/rtl-sdr/">http://cgit.osmocom.org/cgit/rtl-sdr/</a>
+</li>
+<li>OsmoSDR driver from <a href="http://cgit.osmocom.org/cgit/osmo-sdr/">http://cgit.osmocom.org/cgit/osmo-sdr/</a>
+</li>
+<li>HackRF Jawbreaker driver from <a href="http://greatscottgadgets.com/hackrf/">http://greatscottgadgets.com/hackrf/</a>
+</li>
+</ul>
+</li>
+<li>gnuradio-osmosdr from <a href="http://cgit.osmocom.org/cgit/gr-osmosdr/">http://cgit.osmocom.org/cgit/gr-osmosdr/</a>
+</li>
+<li>pulseaudio (Linux only and optional)</li>
+<li>Qt 4.7 or later and optionally Qt Creator (gqrx works with Qt 5)</li>
+</ul><p>Gqrx comes with a simple qmake build setup. It can be compiled from within Qt Creator or in a terminal:</p>
+
+<pre>
+$ git clone https://github.com/csete/gqrx.git gqrx.git
+$ cd gqrx.git
+$ mkdir build
+$ cd build
+$ qmake ..
+$ make
+</pre>
+
+<p>To build in debug mode add "CONFIG+=debug" to the qmake step above. There are also some other qmake options, see the gqrx.pro file.</p>
+
+<h2>
+<a name="credits-and-license" class="anchor" href="#credits-and-license"><span class="octicon octicon-link"></span></a>Credits and License</h2>
+
+<p>Gqrx is designed and written by Alexandru Csete OZ9AEC, and it is licensed under the GNU General Public License.
+Some of the source files were adopted from Cutesdr by Moe Weatley and these come with a BSD license.
+Following people and organisations have contributed:</p>
+
+<p>Alex Grinkov:</p>
+
+<ul>
+<li>FM stereo demodulator.</li>
+</ul><p>Anthony Willard:</p>
+
+<ul>
+<li>Various fixes and improvements</li>
+</ul><p>Elias Önal:</p>
+
+<ul>
+<li>Building Gqrx on Mac OS X.</li>
+<li>Crash recovery dialog.</li>
+</ul><p>Frank Brickle, AB2KT:
+Bob McGwier, N4HY:</p>
+
+<ul>
+<li>Noise blanker (from dttsp).</li>
+</ul><p>Göran Weinholt, SM6-8239:</p>
+
+<ul>
+<li>Various GUI improvements.</li>
+</ul><p>Jiří Pinkava:</p>
+
+<ul>
+<li>Port to gnuradio 3.7 API</li>
+</ul><p>Moe Weatley:</p>
+
+<ul>
+<li>FFT plotter and waterfall.</li>
+<li>Frequency selector.</li>
+<li>Signal strength indicator.</li>
+<li>AGC</li>
+</ul><p>Nadeem Hasan:</p>
+
+<ul>
+<li>Bug fixes.</li>
+</ul><p>Nokia:</p>
+
+<ul>
+<li>QtColorPicker widget.</li>
+</ul><p>Vesa Solonen:</p>
+
+<ul>
+<li>DC removal in AM demodulator.</li>
+</ul><p>Vincent Pelletier</p>
+
+<ul>
+<li>Initial work on the horizontal zooming / scrolling.</li>
+</ul><p>Also thanks to Volker Schroer and Alexey Bazhin for bringing Funcube Dongle Pro+ support to GNU Radio and Gqrx.</p>
+
+<p>Some of the icons are from the GNOME and Tango icon themes. The scope.svg icon is based on the utilities-system-monitor.svg icon from the Mint-X icon theme licensed under GNU GPL.</p>
+
+<p>Let me know if somebody or someting is missing from the list!</p>
+
+<p>Alex OZ9AEC</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/plasmapuppy">plasmapuppy</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
